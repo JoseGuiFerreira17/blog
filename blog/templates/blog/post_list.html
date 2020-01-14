@@ -5,6 +5,15 @@
 	<title>Post List</title>
 </head>
 <body>
-	Hello word!
+	<div>
+		<h1>Blog do Cruzeiro</h1>
+	</div><br>
+	{% for post in posts %}
+		<div>
+			<small>Publicado em: {{post.published_date}}</small>
+			<h2>{{post.title}}</h2>
+			<p>{{post.text|linebreaksbr}}</p>
+		</div><br>
+	{% endfor %}
 </body>
 </html>
