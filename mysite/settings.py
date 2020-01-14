@@ -25,7 +25,7 @@ SECRET_KEY = 'l4k)pn@e5dqseur)nakzd(%_m)d4406^@ae_)1iwvz951ri2jd'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'jguif17.pythonanywhere.com/']
 
 
 # Application definition
@@ -120,4 +120,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-ALLOWED_HOSTS = ['127.0.0.1', '.meusite.com']
