@@ -18,6 +18,10 @@ h1{
 	padding: 8px;
 
 }
+a{
+	color: white;
+	text-decoration: none;
+}
 h2{
 	margin: 0px;
 	text-align: center;

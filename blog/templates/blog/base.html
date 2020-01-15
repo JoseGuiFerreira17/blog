@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Post List</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+</head>
+<body>
+	<div class="top">
+		<h1>Blog do Cruzeiro</h1>
+	</div><br>
+	{% block dinamico %}
+	{%endblock%}
+</body>
+</html>
