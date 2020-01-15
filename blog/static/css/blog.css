@@ -1,18 +1,36 @@
 body{
-	color: blue;
+	color: white;
 	font-family: 'Oswald', sans-serif;
 }
 .top{
 	width: 110%;
 	height: 80px;
-	background-color: blue;
+	background-color: #005ba2;
 	margin-top: -20px;
 	margin-left: -8px;
+}
+.post{
+	background-color: #005292;
+	width: 38%;
 }
 h1{
 	color: white;
 	padding: 8px;
+
 }
 h2{
 	margin: 0px;
+	text-align: center;
+	text-shadow: 3px 3px 3px black;
+}
+.date{
+	font-style: italic;
+	text-align: right;
+	font-size: 8pt;
+}
+.content{
+	text-align: justify;
+	padding-left: 2px;
+	padding-right: 2px;
+
 }
