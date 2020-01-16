@@ -5,6 +5,9 @@
 			<h2>{{post.title}}</h2>
 			<hr>
 			<p class="date">Publicado em: {{post.published_date}}</p>
+			{% if post.photo %}
+			<img src="{{post.photo.url}}">
+			{% endif %}
 			<p class="content">{{post.text|linebreaksbr}}</p>
 			<hr>
 			{%if user.is_authenticated%}

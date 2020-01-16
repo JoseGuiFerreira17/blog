@@ -6,6 +6,9 @@
 			<div class="post">
 				<h2><a href="{%url 'post_details' pk=post.pk%}">{{post.title}}</a></h2>
 				<hr>
+				{% if post.photo %}
+				<img src="{{post.photo.url}}">
+				{% endif %}
 				<p class="content">{{post.text|linebreaksbr}}</p>
 				<hr>
 				<a href="{%url 'post_publish' pk=post.pk%}">Publicar</a>
@@ -15,8 +18,12 @@
 				<h2><a href="{%url 'post_details' pk=post.pk%}">{{post.title}}</a></h2>
 				<hr>
 				<p class="date">Publicado em: {{post.published_date}}</p>
+				{% if post.photo %}
+				<img src="{{post.photo.url}}">
+				{% endif %}
 				<p class="content">{{post.text|linebreaksbr}}</p>
 				<hr>
+				<a href="{%url 'post_delete' pk=post.pk%}" onclick="return confirm('Tem Certeza que deseja apagar?')">Apagar</a>
 			</div><br>
 		{%endif%}
 	{% endfor %}

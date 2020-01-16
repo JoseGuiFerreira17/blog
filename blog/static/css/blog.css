@@ -9,8 +9,8 @@ body{
 	width: 110%;
 	height: 80px;
 	background-color: #005ba2;
-	margin-top: -20px;
 	margin-left: -8px;
+	margin-top: -20px;
 }
 .post{
 	background-color: #005292;
@@ -18,7 +18,7 @@ body{
 }
 h1{
 	color: white;
-	padding: 8px;
+
 
 }
 a{
@@ -45,4 +45,8 @@ h2{
 .link{
 	color: #005ba2;
 	text-decoration: none;
+}
+.logo{
+	
+	float: left;
 }
