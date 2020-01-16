@@ -6,6 +6,8 @@
 			<hr>
 			<p class="date">Publicado em: {{post.published_date}}</p>
 			<p class="content">{{post.text|linebreaksbr}}</p>
+			<hr>
+			<a href="{%url 'post_edit' pk=post.pk%}">Editar</a>
 		</div><br>
 	{% endif %}
 {% endblock %}

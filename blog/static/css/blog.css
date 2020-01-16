@@ -1,3 +1,6 @@
+form{
+	color: #005ba2;
+}
 body{
 	color: white;
 	font-family: 'Oswald', sans-serif;
@@ -34,6 +37,12 @@ h2{
 }
 .content{
 	text-align: justify;
-
-
+}
+.titulo{
+	color: #005ba2;
+	text-shadow: 3px 3px 3px black;
+}
+.link{
+	color: #005ba2;
+	text-decoration: none;
 }
