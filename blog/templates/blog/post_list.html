@@ -1,12 +1,23 @@
 {% extends 'blog/base.html' %}
 {% block dinamico %}
+
 	{% for post in posts %}
-		
-		<div class="post">
-			<h2><a href="{%url 'post_details' pk=post.pk%}">{{post.title}}</a></h2>
-			<hr>
-			<p class="date">Publicado em: {{post.published_date}}</p>
-			<p class="content">{{post.text|linebreaksbr}}</p>
-		</div><br>
+		{%if post.published_date == null and user.is_authenticated%}
+			<div class="post">
+				<h2><a href="{%url 'post_details' pk=post.pk%}">{{post.title}}</a></h2>
+				<hr>
+				<p class="content">{{post.text|linebreaksbr}}</p>
+				<hr>
+				<a href="{%url 'post_publish' pk=post.pk%}">Publicar</a>
+			</div><br>
+		{%elif post.published_date%}
+			<div class="post">
+				<h2><a href="{%url 'post_details' pk=post.pk%}">{{post.title}}</a></h2>
+				<hr>
+				<p class="date">Publicado em: {{post.published_date}}</p>
+				<p class="content">{{post.text|linebreaksbr}}</p>
+				<hr>
+			</div><br>
+		{%endif%}
 	{% endfor %}
 {% endblock %}
