@@ -7,7 +7,9 @@
 			<p class="date">Publicado em: {{post.published_date}}</p>
 			<p class="content">{{post.text|linebreaksbr}}</p>
 			<hr>
-			<a href="{%url 'post_edit' pk=post.pk%}">Editar</a>
+			{%if user.is_authenticate%}
+				<a href="{%url 'post_edit' pk=post.pk%}">Editar</a>
+			{%endif%}
 		</div><br>
 	{% endif %}
 {% endblock %}
