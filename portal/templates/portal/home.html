@@ -1,12 +1,103 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Portal</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-</head>
-<body>
+{% extends 'portal/base.html' %}
+{% block dinamico %}
+<br><br>
+{% if user.is_authenticated%}
+	{% for noticia in noticias %}
+		{%if noticia.area.cor == 'Azul' %}
+			<center>
+			<div class="card bg-dark text-white" style="border: 2px solid blue; width: 70%; height: 30%; color: blue; font-weight: bold;">
+			  <img src="{{noticia.foto.url}}" class="card-img" width="100%" height="250px">
+			  <div class="card-img-overlay">
+			    <h4 class="card-title"><a href="{% url 'listar_noticia' pk=noticia.pk %}" style="color: blue; font-weight: bold;">{{noticia.titulo}}</a></h4>
+			    <p class="card-text" style="text-align: justify;">{{noticia.texto}}</p>
+			    {%if noticia.data_publicacao%}
+			    <p class="card-text">Publicado em: {{noticia.data_publicacao}}</p>
+			    {%else%}
+			    <a href="{% url 'publicar_noticia' pk=noticia.pk%}">Publicar</a>
+			    {%endif%}
+			    <p class="card-text"><a style="display: inline-block;" href="{% url 'editar_noticia' pk=noticia.pk%}"> Editar</a> | <a onclick="return confirm('Tem certeza?')" href="{% url 'remove_noticia' pk=noticia.pk%}">Apagar</a></p>
+			 </div>
+			</div>
+			</center><br>
+		{%elif noticia.area.cor == 'Vermelho'%}
+			<center>
+			<div class="card bg-dark text-white" style="border: 2px solid red; width: 70%; height: 30%; color: red; font-weight: bold;">
+			  <img src="{{noticia.foto.url}}" class="card-img" width="100%" height="250px">
+			  <div class="card-img-overlay">
+			    <h4 class="card-title"><a href="{% url 'listar_noticia' pk=noticia.pk %}" style="color: red; font-weight: bold;">{{noticia.titulo}}</a></h4>
+			    <p class="card-text" style="text-align: justify;">{{noticia.texto}}</p>
+			    {%if noticia.data_publicacao%}
+			    <p class="card-text">Publicado em: {{noticia.data_publicacao}}</p>
+			    {%else%}
+			    <a href="{% url 'publicar_noticia' pk=noticia.pk%}">Publicar</a>
+			    {%endif%}
+			    <p class="card-text"><a style="display: inline-block;" href="{% url 'editar_noticia' pk=noticia.pk%}"> Editar</a> | <a onclick="return confirm('Tem certeza?')" href="{% url 'remove_noticia' pk=noticia.pk%}">Apagar</a></p>
+			 </div>
+			</div>
+			</center><br>
+		{%elif noticia.area.cor == 'Verde'%}
+			<center>
+			<div class="card bg-dark text-white" style="border: 2px solid green; width: 70%; height: 30%; color: green; font-weight: bold;">
+			  <img src="{{noticia.foto.url}}" class="card-img" width="100%" height="250px">
+			  <div class="card-img-overlay">
+			    <h4 class="card-title"><a href="{% url 'listar_noticia' pk=noticia.pk %}" style="color: green; font-weight: bold;">{{noticia.titulo}}</a></h4>
+			    <p class="card-text" style="text-align: justify;">{{noticia.texto}}</p>
+			    {%if noticia.data_publicacao%}
+			    <p class="card-text">Publicado em: {{noticia.data_publicacao}}</p>
+			    {%else%}
+			    <a href="{% url 'publicar_noticia' pk=noticia.pk%}">Publicar</a>
+			    {%endif%}
+			    <p class="card-text"><a style="display: inline-block;" href="{% url 'editar_noticia' pk=noticia.pk%}"> Editar</a> | <a onclick="return confirm('Tem certeza?')" href="{% url 'remove_noticia' pk=noticia.pk%}">Apagar</a></p>
+			 </div>
+			</div>
+			</center><br>
+		{%endif%}
+		
 
-</body>
-</html>
+
+
+
+
+	{%endfor%}
+{%else%}		
+				<div lass="card bg-dark text-white">
+				<div style=" position: absolute; left: 110px;">
+				{% for noticia in noticias %}
+					{%if noticia.area.cor == 'Verde' and noticia.data_publicacao %}
+						<tr>
+							<div style="float: left; width: 50%; height: 30%; color: green; font-weight: bold;">
+								<img src="{{noticia.foto.url}}" class="card-img" width="100%" height="250px">
+								<h4><a href="{% url 'listar_noticia' pk=noticia.pk %}" style="color: green; font-weight: bold;">{{noticia.titulo}}</a></h4>
+							</div>
+						</tr><br>
+					{%endif%}
+				{%endfor%}
+				</div>
+				<div style="position: absolute; left: 490px;">
+				{% for noticia in noticias %}
+					{%if noticia.area.cor == 'Azul' and noticia.data_publicacao %}
+						<tr>
+							<div style=" width: 40%; height: 30%; color: blue; font-weight: bold;">
+								<img src="{{noticia.foto.url}}" class="card-img" width="100%" height="250px">
+								<h4><a href="{% url 'listar_noticia' pk=noticia.pk %}" style="color: blue; font-weight: bold;">{{noticia.titulo}}</a></h4>
+							</div>
+						</tr><br>
+					{%endif%}
+				{%endfor%}
+				</div>
+				<div style="position: absolute; left: 900px;">
+				{% for noticia in noticias %}
+					{%if noticia.area.cor == 'Vermelho' and noticia.data_publicacao %}
+						<tr>
+							<div style=" width: 80%; height: 30%; color: red; font-weight: bold;">
+								<img src="{{noticia.foto.url}}" class="card-img" width="100%" height="250px">
+								<h4><a href="{% url 'listar_noticia' pk=noticia.pk %}" style="color: red; font-weight: bold;">{{noticia.titulo}}</a></h4>
+							</div>
+						</tr><br>
+					{%endif%}
+				{%endfor%}
+				</div>
+			</div>
+
+{%endif%}
+{% endblock %}

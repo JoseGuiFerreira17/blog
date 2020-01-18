@@ -1,0 +1,18 @@
+{% extends 'portal/base.html' %}
+{% block dinamico %}
+
+{%if areas%}
+	{% for area in areas %}
+		<div>
+			<h2>{{area.descricao}}</h2>
+			<h4>{{area.cor}}</h4>
+			{%if area.status == True%}
+				<a href="{% url 'desativar_area' pk=area.pk %}" onclick="return confirm('Tem certeza?')">Desativar</a>
+			{%else%}
+				<a href="{% url 'ativar_area' pk=area.pk %}" onclick="return confirm('Tem certeza?')">Ativar</a>
+			{%endif%}
+			<a href="{% url 'editar_area' pk=area.pk %}">Editar</a>
+		</div><br>
+	{% endfor %}
+{% endif %}
+{% endblock %}

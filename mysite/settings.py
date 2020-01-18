@@ -37,8 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog',
-    'portal'
+    'portal',
 ]
 
 MIDDLEWARE = [
@@ -56,6 +55,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+
         'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -121,5 +121,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-MEDIA_URL = '/blog/media/'
+MEDIA_URL = '/portal/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

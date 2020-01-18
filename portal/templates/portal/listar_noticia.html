@@ -1,0 +1,12 @@
+{% extends 'portal/base.html' %}
+{% block dinamico %}
+<br><br>
+<div>
+	{% if noticias.data_publicacao%}
+	<strong>{{noticias.data_publicacao}}</strong>
+	{%endif%}
+	<img style="float: left;" src="{{noticias.foto.url}}" class="card-img" width="60%" height="350px">
+	<h1 style="text-align: left">{{noticias.titulo}}</h1>
+	<p style="text-align: justify;">{{noticias.texto}}</p>
+</div>
+{% endblock %}
