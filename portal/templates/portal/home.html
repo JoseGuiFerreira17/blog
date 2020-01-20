@@ -61,11 +61,11 @@
 	{%endfor%}
 {%else%}		
 				<div lass="card bg-dark text-white">
-				<div style=" position: absolute; left: 110px;">
+				<div style=" position: absolute; left: 8%;">
 				{% for noticia in noticias %}
-					{%if noticia.area.cor == 'Verde' and noticia.data_publicacao %}
+					{%if noticia.area.cor == 'Verde' and noticia.data_publicacao  and noticia.area.status %}
 						<tr>
-							<div style="float: left; width: 50%; height: 30%; color: green; font-weight: bold;">
+							<div style="width: 55%; height: 30%; color: green; font-weight: bold;">
 								<img src="{{noticia.foto.url}}" class="card-img" width="100%" height="250px">
 								<h4><a href="{% url 'listar_noticia' pk=noticia.pk %}" style="color: green; font-weight: bold;">{{noticia.titulo}}</a></h4>
 							</div>
@@ -73,9 +73,9 @@
 					{%endif%}
 				{%endfor%}
 				</div>
-				<div style="position: absolute; left: 490px;">
+				<div style="position: absolute; left: 37%;">
 				{% for noticia in noticias %}
-					{%if noticia.area.cor == 'Azul' and noticia.data_publicacao %}
+					{%if noticia.area.cor == 'Azul' and noticia.data_publicacao and noticia.area.status %}
 						<tr>
 							<div style=" width: 40%; height: 30%; color: blue; font-weight: bold;">
 								<img src="{{noticia.foto.url}}" class="card-img" width="100%" height="250px">
@@ -85,11 +85,11 @@
 					{%endif%}
 				{%endfor%}
 				</div>
-				<div style="position: absolute; left: 900px;">
+				<div style="position: absolute; left: 65%;">
 				{% for noticia in noticias %}
-					{%if noticia.area.cor == 'Vermelho' and noticia.data_publicacao %}
+					{%if noticia.area.cor == 'Vermelho' and noticia.data_publicacao  and noticia.area.status %}
 						<tr>
-							<div style=" width: 80%; height: 30%; color: red; font-weight: bold;">
+							<div style=" width: 75%; height: 30%; color: red; font-weight: bold;">
 								<img src="{{noticia.foto.url}}" class="card-img" width="100%" height="250px">
 								<h4><a href="{% url 'listar_noticia' pk=noticia.pk %}" style="color: red; font-weight: bold;">{{noticia.titulo}}</a></h4>
 							</div>
@@ -97,7 +97,7 @@
 					{%endif%}
 				{%endfor%}
 				</div>
-			
+
 			</div>
 
 {%endif%}
