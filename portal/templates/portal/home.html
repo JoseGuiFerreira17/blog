@@ -61,7 +61,7 @@
 	{%endfor%}
 {%else%}		
 				<div lass="card bg-dark text-white">
-				<div style=" position: fixed; left: 110px;">
+				<div style=" position: absolute; left: 110px;">
 				{% for noticia in noticias %}
 					{%if noticia.area.cor == 'Verde' and noticia.data_publicacao %}
 						<tr>
@@ -73,7 +73,7 @@
 					{%endif%}
 				{%endfor%}
 				</div>
-				<div style="position: fixed; left: 490px;">
+				<div style="position: absolute; left: 490px;">
 				{% for noticia in noticias %}
 					{%if noticia.area.cor == 'Azul' and noticia.data_publicacao %}
 						<tr>
@@ -85,7 +85,7 @@
 					{%endif%}
 				{%endfor%}
 				</div>
-				<div style="position: fixed; left: 900px;">
+				<div style="position: absolute; left: 900px;">
 				{% for noticia in noticias %}
 					{%if noticia.area.cor == 'Vermelho' and noticia.data_publicacao %}
 						<tr>
@@ -97,6 +97,7 @@
 					{%endif%}
 				{%endfor%}
 				</div>
+			
 			</div>
 
 {%endif%}

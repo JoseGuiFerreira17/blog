@@ -26,12 +26,14 @@
 {%endblock%}
 </div>
 <br><br>
-<footer class="text-center" style="width: 100% ;background-color: lightgrey; position: absolute; top: 200%; left: 0;">
+{% if user.is_authenticated%}
+<footer class="text-center" style="width: 100% ;background-color: lightgrey; ">
   <p>&copy; ADS IFPI</p>
 
-    Developed by <a href="https://www.instagram.com/jguif.exe/?hl=pt-br">José Gui</a>
+    Developed by <a target="blank" href="https://www.instagram.com/jguif.exe/?hl=pt-br">José Gui</a>
   </div>
 </footer>
+{%endif%}
 <script src="{% static 'js/jquery.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
